@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  showModalWindow() {
+    console.log('Show modal button click')
+  }
+
   constructor() { }
 
   ngOnInit(): void {

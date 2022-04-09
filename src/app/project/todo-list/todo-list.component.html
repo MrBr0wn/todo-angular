@@ -1,5 +1,7 @@
 <p>
-	<mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox>
+	<mat-checkbox #item formControlName="pepperoni" (click)="checkItem(item)">
+		Pepperoni
+	</mat-checkbox>
 </p>
 <p>
 	<mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>

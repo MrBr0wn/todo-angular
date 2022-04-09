@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
+  checkItem(item:any) {
+    console.log(item.checked);
+  }
+
   constructor() { }
 
   ngOnInit(): void {
