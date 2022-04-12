@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
+import { ModalWindowComponent } from "../modal-window/modal-window.component";
 
 @Component({
   selector: 'app-header',
@@ -7,13 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  showModalWindow() {
-    console.log('Show modal button click')
-  }
+  constructor(public dialog: MatDialog) { }
 
-  constructor() { }
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalWindowComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   ngOnInit(): void {
   }
-
 }

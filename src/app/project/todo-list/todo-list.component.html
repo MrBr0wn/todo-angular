@@ -1,11 +1,16 @@
-<p>
-	<mat-checkbox #item formControlName="pepperoni" (click)="checkItem(item)">
-		Pepperoni
+<p *ngFor="let item of todos">
+	<mat-checkbox
+								formControlName="pepperoni"
+								(change)="checkItem(item)"
+								[checked]="item.isCompleted"
+								[class.strike]="item.isCompleted"
+	>
+		{{item.text | titlecase}}
 	</mat-checkbox>
 </p>
-<p>
+<!-- <p>
 	<mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
 </p>
 <p>
 	<mat-checkbox formControlName="mushroom">Mushroom</mat-checkbox>
-</p>
+</p> -->

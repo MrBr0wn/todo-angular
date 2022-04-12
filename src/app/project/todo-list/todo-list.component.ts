@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Todo } from './todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
-  checkItem(item:any) {
-    console.log(item.checked);
+  @Input() todos?: Todo[];
+
+  checkItem(item: Todo) {
+    item.isCompleted = !item.isCompleted;
+
+    console.log(item);
   }
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
