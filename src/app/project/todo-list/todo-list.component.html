@@ -1,12 +1,13 @@
 <p *ngFor="let item of todos">
 	<mat-checkbox
 								formControlName="pepperoni"
-								(change)="checkItem(item)"
+								(change)="updateItem(item)"
 								[checked]="item.isCompleted"
 								[class.strike]="item.isCompleted"
 	>
 		{{item.text | titlecase}}
 	</mat-checkbox>
+	<!-- {{item | json}} -->
 </p>
 <!-- <p>
 	<mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>

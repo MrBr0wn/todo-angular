@@ -11,44 +11,20 @@ import { Project } from './project';
 
 export class ProjectComponent implements OnInit {
 
-// TODO: Привести получаемые данные к структуре интерфеса?
+  projects: Project[] = [];
 
-  projects: any;
-  constructor(private projectsData: ProjectsDataService) {
-    this.projectsData.projects1().subscribe((data) => {
-      console.log("data", data);
-      return this.projects = data;
-    })
+  constructor(private projectsDataService: ProjectsDataService) {
+
   }
-
-  // projects: Project[] = [{
-  //   title: 'Project 1',
-  //   todos: [
-  //     {
-  //       text: 'Something 1',
-  //       isCompleted: false
-  //     },
-  //     {
-  //       text: 'Something more 1',
-  //       isCompleted: true
-  //     }]
-  //   },
-  //   {
-  //     title: 'Project 2',
-  //     todos: [{
-  //       text: 'Something 2',
-  //       isCompleted: true
-  //     },
-  //     {
-  //       text: 'Something more 2',
-  //       isCompleted: false
-  //     }]
-  //   }
-  // ]
-
 
 
   ngOnInit(): void {
+    this.getProjectsData();
+  }
+
+  getProjectsData(): void {
+    this.projectsDataService.getProjectsData()
+      .subscribe(projects => this.projects = projects)
   }
 
 }
