@@ -7,6 +7,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -37,6 +39,8 @@ import { FormAddComponent } from './modal-window/form-add/form-add.component';
     MatDividerModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
     HttpClientModule,
   ],
   providers: [],

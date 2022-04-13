@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-modal-window',
@@ -8,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class ModalWindowComponent implements OnInit {
+
+  value: string = 'Clear me';
 
   constructor() { }
 
