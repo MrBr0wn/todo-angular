@@ -33,11 +33,32 @@ export class ProjectsDataService {
 
   // PATCH: Updating todo property isCompleted
   updateTodoUrl: string = "http://localhost:3000/projects/";
+  createTodoUrl: string = "http://localhost:3000/todos";
 
   updateTodo(todo: Todo): Observable<any> {
     return this.http.patch(`${this.updateTodoUrl}${todo.project_id}/todos/${todo.id}`, todo, this.httpOptions)
       .pipe(
         catchError(this.handleError<any>('updateTodo'))
+      );
+  }
+
+  // POST: sending a new todo
+  sendTodo(todo: Todo): Observable<any> {
+    console.log(todo);
+
+    return this.http.post<Todo>(`${this.createTodoUrl}`, todo, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) })
+      .pipe(
+        catchError(this.handleError<any>('sendTodo'))
+      );
+  }
+
+  // POST: sending a new todo with a new project
+  sendTodoWithProject(data: any): Observable<any> {
+    console.log(data);
+
+    return this.http.post(`${this.createTodoUrl}`, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) })
+      .pipe(
+        catchError(this.handleError<any>('sendTodoWithProject'))
       );
   }
 
