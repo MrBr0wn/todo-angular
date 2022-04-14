@@ -8,8 +8,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -41,7 +42,8 @@ import { FormAddComponent } from './modal-window/form-add/form-add.component';
     MatDialogModule,
     MatInputModule,
     MatSelectModule,
-    HttpClientModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

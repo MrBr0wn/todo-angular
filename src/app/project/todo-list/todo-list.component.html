@@ -1,6 +1,5 @@
 <p *ngFor="let item of todos">
 	<mat-checkbox
-								formControlName="pepperoni"
 								(change)="updateItem(item)"
 								[checked]="item.isCompleted"
 								[class.strike]="item.isCompleted"
@@ -9,9 +8,3 @@
 	</mat-checkbox>
 	<!-- {{item | json}} -->
 </p>
-<!-- <p>
-	<mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
-</p>
-<p>
-	<mat-checkbox formControlName="mushroom">Mushroom</mat-checkbox>
-</p> -->

@@ -8,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class ModalWindowComponent implements OnInit {
 
-  value: string = 'Clear me';
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  okButtonDialog() {
+    console.log('Dialog OK button');
+  }
 }

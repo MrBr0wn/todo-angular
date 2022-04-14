@@ -21,9 +21,6 @@ export class TodoListComponent implements OnInit {
     }
   }
 
-
   ngOnInit(): void {
   }
-
-
 }

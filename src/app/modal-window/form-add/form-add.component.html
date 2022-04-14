@@ -1,1 +1,49 @@
-<p>form-add works!</p>
+<mat-dialog-content class="mat-typography">
+
+  <form [formGroup]="addForm">
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Название задачи</mat-label>
+      <input matInput type="text" formControlName="todoTitle">
+      <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearTodoTitleField()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <p></p>
+
+    <mat-form-field class="form-field" appearance="fill" *ngIf="isNewCategory">
+      <mat-label>Название категории</mat-label>
+      <input matInput type="text" formControlName="categoryTitle">
+    </mat-form-field>
+
+    <p></p>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Категория</mat-label>
+      <mat-select name="category"
+                  formControlName="categoryId"
+                  (selectionChange)="onChangeCategory($event)"
+      >
+        <mat-option value="new">Новая категория</mat-option>
+        <mat-option *ngFor="let category of categoriesSelect" value={{category.id}}>
+          {{category.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-button
+          mat-dialog-close
+          cdkFocusInitial
+  >ОТМЕНА</button>
+
+  <button mat-button
+          [mat-dialog-close]="true"
+          color="primary"
+          [disabled]="!addForm.valid"
+          (click)="submitFormTodo()"
+  >ОК</button>
+</mat-dialog-actions>
