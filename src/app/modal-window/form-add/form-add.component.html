@@ -3,7 +3,7 @@
   <form [formGroup]="addForm">
     <mat-form-field class="form-field" appearance="fill">
       <mat-label>Название задачи</mat-label>
-      <input matInput type="text" formControlName="todoTitle">
+      <input matInput type="text" formControlName="text">
       <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearTodoTitleField()">
         <mat-icon>close</mat-icon>
       </button>
@@ -13,7 +13,7 @@
 
     <mat-form-field class="form-field" appearance="fill" *ngIf="isNewCategory">
       <mat-label>Название категории</mat-label>
-      <input matInput type="text" formControlName="categoryTitle">
+      <input matInput type="text" formControlName="project">
     </mat-form-field>
 
     <p></p>
@@ -21,7 +21,7 @@
     <mat-form-field class="form-field" appearance="fill">
       <mat-label>Категория</mat-label>
       <mat-select name="category"
-                  formControlName="categoryId"
+                  formControlName="project_id"
                   (selectionChange)="onChangeCategory($event)"
       >
         <mat-option value="new">Новая категория</mat-option>

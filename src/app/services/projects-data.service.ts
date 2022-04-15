@@ -13,7 +13,8 @@ import { Todo } from "../project/todo-list/todo";
 
 export class ProjectsDataService {
 
-  private projectsUrl = "http://localhost:3000/projects.json";
+  // private projectsUrl = "http://localhost:3000/projects.json";
+  private projectsUrl = "https://mrbrown-todo-list.herokuapp.com/projects.json";
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json',
@@ -32,18 +33,20 @@ export class ProjectsDataService {
   }
 
   // PATCH: Updating todo property isCompleted
-  updateTodoUrl: string = "http://localhost:3000/projects/";
-  createTodoUrl: string = "http://localhost:3000/todos";
+  updateTodoUrl: string = "https://mrbrown-todo-list.herokuapp.com/projects/";
+  createTodoUrl: string = "https://mrbrown-todo-list.herokuapp.com/todos";
+  // updateTodoUrl: string = "http://localhost:3000/projects/";
+  // createTodoUrl: string = "http://localhost:3000/todos/";
 
-  updateTodo(todo: Todo): Observable<any> {
-    return this.http.patch(`${this.updateTodoUrl}${todo.project_id}/todos/${todo.id}`, todo, this.httpOptions)
+  updateTodo(todo: Todo): Observable<Todo> {
+    return this.http.patch<Todo>(`${this.updateTodoUrl}${todo.project_id}/todos/${todo.id}`, JSON.stringify(todo), this.httpOptions)
       .pipe(
         catchError(this.handleError<any>('updateTodo'))
       );
   }
 
   // POST: sending a new todo
-  sendTodo(todo: Todo): Observable<any> {
+  sendTodo(todo: any): Observable<Todo> {
     console.log(todo);
 
     return this.http.post<Todo>(`${this.createTodoUrl}`, todo, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) })
@@ -53,10 +56,10 @@ export class ProjectsDataService {
   }
 
   // POST: sending a new todo with a new project
-  sendTodoWithProject(data: any): Observable<any> {
+  sendTodoWithProject(data: any): Observable<Project> {
     console.log(data);
 
-    return this.http.post(`${this.createTodoUrl}`, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) })
+    return this.http.post<Project>(`${this.createTodoUrl}`, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) })
       .pipe(
         catchError(this.handleError<any>('sendTodoWithProject'))
       );
