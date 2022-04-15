@@ -40,7 +40,7 @@ export class FormAddComponent implements OnInit {
     if (!this.addForm.valid) {
       return false;
     } else {
-      alert(JSON.stringify(this.addForm.value));
+
       if (this.addForm.value['project']) {
         console.log('...Form with new category...');
         this.postTodoWithCategory(
